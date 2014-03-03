@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</h:head>
+<h:body>
+    <h:form>
+        <h1>Person App</h1>
+        <p:commandButton value="Add Person" action="add"/>
+        <p:messages id="messages" showDetail="true" showSummary="false" autoUpdate="true">
+            <p:effect type="fade" event="load" delay="1000" />
+        </p:messages>
+        <p:dataTable var="person" value="#{personController.fetchPerson}">
+            <p:column headerText="ID">
+                <h:outputText value="#{person.id}"/>
+            </p:column>
+            <p:column headerText="Name">
+                <h:outputText value="#{person.name}"/>
+            </p:column>
+            <p:column headerText="Email">
+                <h:outputText value="#{person.email}"/>
+            </p:column>
+        </p:dataTable>
+    </h:form>
+</h:body>
+</html>
